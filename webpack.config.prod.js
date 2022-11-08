@@ -6,14 +6,10 @@ module.exports = {
 	entry: "./src/app.ts",
 	output: {
 		filename: "bundle.js",
-		path: path.resolve(__dirname, "dist"),
+		path: path.resolve(__dirname, "build"),
+		publicPath: "",
 	},
 	devtool: false,
-	devServer: {
-		static: {
-			directory: path.join(__dirname, "/"),
-		},
-	},
 	module: {
 		rules: [
 			{
