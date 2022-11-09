@@ -112,6 +112,20 @@ button:active {
 	margin: 0;
 }
 
+[draggable] {
+	position: relative;
+}
+
+[draggable]:hover {
+	cursor: grab;
+}
+
+[draggable] button {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+}
+
 .droppable {
 	background: #ffe3ee;
 }

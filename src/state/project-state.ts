@@ -54,6 +54,17 @@ export class ProjectState extends State<Project> {
 			this.updateListeners();
 		}
 	}
+
+	deleteProject(id: string) {
+		const project = this.projects.find((project) => project.id === id);
+		if (project) {
+			this.projects = this.projects.filter(
+				(project) => project.id !== id
+			);
+			this.updateListeners();
+		}
+	}
+
 	private updateListeners() {
 		for (const listenerFn of this.listeners) {
 			listenerFn(this.projects.slice());

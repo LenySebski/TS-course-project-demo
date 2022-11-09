@@ -2,6 +2,7 @@ import { Draggable } from "../models/drag-drop-interfaces";
 import { AutoBind } from "../decorators/autobind-decorator";
 import Component from "../components/base-component";
 import { Project } from "../models/project-model";
+import { projectState } from "../state/project-state";
 export class ProjectItem
 	extends Component<HTMLUListElement, HTMLLIElement>
 	implements Draggable
@@ -33,6 +34,11 @@ export class ProjectItem
 
 	configure() {
 		this.element.addEventListener("dragstart", this.dragStartHandler);
+		this.element
+			.querySelector("button")!
+			.addEventListener("click", () =>
+				projectState.deleteProject(this.element.id)
+			);
 		// this.element.addEventListener("dragend", this.dragEndHandler);
 	}
 	renderContent() {
